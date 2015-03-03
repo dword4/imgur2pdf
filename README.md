@@ -1,5 +1,7 @@
-imgur2pdf
-=========
+#### Requires
+* reportlab
+* imgurpython
+* PIL
 
-Pulls down the contents of an Imgur album and creates a PDF file complete
-with titles and descriptions for each of the images.
+#### Description
+Pulls down the contents of an Imgur album and creates a PDF file complete with titles and descriptions for each of the images.
