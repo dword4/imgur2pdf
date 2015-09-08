@@ -47,8 +47,15 @@ for item in items:
         del response
         sc = PIL.Image.open(name)
         width, height = sc.size
-        scaled_width = width * 0.15
-        scaled_height = height * 0.15
+
+	# time to look at the size and apply a resize ratio
+	if height <= 600 and width <= 800:
+		resize_ratio = 0.50
+	else :
+		resize_ratio = 0.15
+
+        scaled_width = width * resize_ratio
+        scaled_height = height * resize_ratio 
 
         im = Image(name, scaled_width, scaled_height)
         title = str(item.title)
