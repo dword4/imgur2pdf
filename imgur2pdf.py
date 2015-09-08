@@ -1,6 +1,7 @@
 #!/usr/bin/python
 from imgurpython import ImgurClient
 from PIL import Image
+from creds import * 
 import PIL
 from reportlab.pdfgen import canvas
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Image, Spacer, PageBreak
@@ -13,8 +14,8 @@ import shutil
 import os
 
 album = raw_input('Album ID:')
-client_id = 'get_your_own'
-client_secret = 'get_your_own'
+#client_id = 'c6f96735d7901bf'
+#client_secret = '2cdcde245dc4418be968236a64bb3cffe598c6de'
 client = ImgurClient(client_id, client_secret)
 album_file = str(album)+".pdf"
 doc = SimpleDocTemplate(album_file,pagesize=letter,
