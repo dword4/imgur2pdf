@@ -21,7 +21,8 @@ album = raw_input('Album ID:')
 #client_id = 'c6f96735d7901bf'
 #client_secret = '2cdcde245dc4418be968236a64bb3cffe598c6de'
 client = ImgurClient(client_id, client_secret)
-album_file = str(album)+".pdf"
+album_data = client.get_album(album)
+album_file = album_data.title.replace(' ','_')+".pdf"
 doc = SimpleDocTemplate(album_file,pagesize=letter,
                         rightMargin=25,leftMargin=25,
                         topMargin=25,bottomMargin=25)
@@ -36,6 +37,7 @@ ParagraphStyle(name = 'Normal',
                wordWrap = 1)
 Story=[]
 styles=getSampleStyleSheet()
+
 items = client.get_album_images(str(album))
 for item in items:
 
