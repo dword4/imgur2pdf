@@ -18,8 +18,6 @@ import urllib3
 urllib3.disable_warnings()
 
 album = raw_input('Album ID:')
-#client_id = 'c6f96735d7901bf'
-#client_secret = '2cdcde245dc4418be968236a64bb3cffe598c6de'
 client = ImgurClient(client_id, client_secret)
 album_data = client.get_album(album)
 album_file = album_data.title.replace(' ','_')+".pdf"
