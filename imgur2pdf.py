@@ -2,7 +2,7 @@
 from imgurpython import ImgurClient
 from PIL import Image
 from creds import * 
-from builtins import input
+#from builtins import input
 import PIL
 from reportlab.pdfgen import canvas
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Image, Spacer, PageBreak
@@ -13,8 +13,13 @@ from reportlab.lib.enums import TA_JUSTIFY
 import requests
 import shutil
 import os
-
 import argparse
+import sys
+
+if sys.version_info[0]== 2:
+    pass 
+elif sys.version_info[0] == 3:
+    from builtins import input
 
 # trying to fix the error messages
 import urllib3
