@@ -2,7 +2,6 @@
 from imgurpython import ImgurClient
 from PIL import Image
 from creds import * 
-#from builtins import input
 import PIL
 from reportlab.pdfgen import canvas
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Image, Spacer, PageBreak
@@ -29,7 +28,6 @@ parser = argparse.ArgumentParser(description='imgur2pdf - convert an imgur galle
 parser.add_argument('album', metavar='album',  help='id of imgur album')
 parser.add_argument('destination', metavar='destination', help='location to save to')
 args = parser.parse_args()
-#album = input('Album ID:')
 
 client = ImgurClient(client_id, client_secret)
 album_data = client.get_album(args.album)
@@ -64,7 +62,6 @@ styles=getSampleStyleSheet()
 items = client.get_album_images(str(args.album))
 for item in items:
 
-    #print(str(item.title))
     response = requests.get(item.link, stream=True)
     name = str(item.id)+".jpg"
     with open(name, 'wb') as out_file:
