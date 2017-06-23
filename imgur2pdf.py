@@ -10,6 +10,7 @@ from reportlab.lib.pagesizes import letter
 from reportlab.lib.units import inch
 from reportlab.lib.enums import TA_JUSTIFY
 import requests
+import progressbar as pb
 import shutil
 import os
 import argparse
@@ -60,6 +61,11 @@ Story=[]
 styles=getSampleStyleSheet()
 
 items = client.get_album_images(str(args.album))
+p = 1
+for item in items:
+    p += 1
+bar = pb.ProgressBar(maxval=p).start()
+p = 1
 for item in items:
 
     response = requests.get(item.link, stream=True)
@@ -87,7 +93,8 @@ for item in items:
     if item.description:
         Story.append(Paragraph(item.description, styles["Normal"]))
     Story.append(PageBreak())
-
+    bar.update(p)
+    p += 1
 doc.build(Story)
 print("file created -> "+str(album_file))
 os.system("rm *.jpg")
