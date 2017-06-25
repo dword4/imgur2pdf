@@ -34,7 +34,7 @@ client = ImgurClient(client_id, client_secret)
 album_data = client.get_album(args.album)
 album_file = album_data.title.replace(' ','_')+".pdf"
 
-path = args.destination + '/' + album_file
+path = args.destination[:-1] + '/' + album_file
 
 if os.path.isfile(path) == True:
     # we found something!
@@ -61,7 +61,7 @@ Story=[]
 styles=getSampleStyleSheet()
 
 items = client.get_album_images(str(args.album))
-p = 1
+p = 0 
 for item in items:
     p += 1
 bar = pb.ProgressBar(maxval=p).start()
@@ -96,5 +96,5 @@ for item in items:
     bar.update(p)
     p += 1
 doc.build(Story)
-print("file created -> "+str(album_file))
+print("\nfile created -> "+str(path))
 os.system("rm *.jpg")
