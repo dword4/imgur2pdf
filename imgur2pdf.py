@@ -15,6 +15,7 @@ import shutil
 import os
 import argparse
 import sys
+import resize
 
 if sys.version_info[0]== 2:
     pass 
@@ -77,13 +78,15 @@ for item in items:
     width, height = sc.size
 
     # time to look at the size and apply a resize ratio
+    """
     if height <= 600 and width <= 800:
         resize_ratio = 0.50
     else :
-        resize_ratio = 0.15
-
-    scaled_width = width * resize_ratio
-    scaled_height = height * resize_ratio 
+        resize_ratio = 0.85
+    """
+    (scaled_width, scaled_height) = resize.smart_resize(width, height)
+    #scaled_width = width * resize_ratio
+    #scaled_height = height * resize_ratio 
 
     im = Image(name, scaled_width, scaled_height)
     title = str(item.title)
@@ -97,4 +100,5 @@ for item in items:
     p += 1
 doc.build(Story)
 print("\nfile created -> "+str(path))
-os.system("rm *.jpg")
+#os.system("rm *.jpg")
+# line above commented out for testing purposes

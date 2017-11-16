@@ -32,8 +32,8 @@ def both_larger(width, height):
         # height is the largest
         DECREASE = height - MAX_HEIGHT
         RATIO = round(DECREASE / height, 2)
-        scaled_width = width * (1 - RATIO)
-        scaled_height = height * (1 - RATIO) 
+        scaled_width = (width * (1 - RATIO) * 0.92)
+        scaled_height = (height * (1 - RATIO) * 0.92) 
     return scaled_width, scaled_height
 
 def smart_resize(width,height):
