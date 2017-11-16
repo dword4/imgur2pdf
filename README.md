@@ -2,6 +2,7 @@
 * reportlab
 * imgurpython
 * PIL (or Pillow if running with Python 3)
+* progressbar
 
 #### Description
 Pulls down the contents of an Imgur album and creates a PDF file complete with titles and descriptions for each of the images. Filenames are based on the album title and it wont overwrite an existing file.
