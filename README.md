@@ -1,3 +1,4 @@
+# New Location => https://gitlab.com/dword4/imgur2pdf
 #### Requires
 * reportlab
 * imgurpython
