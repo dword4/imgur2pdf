@@ -19,5 +19,3 @@ If you get messages when running it about InsecurePlatformWarning you need to in
 
 #### Future Plans
 more pictures per page, a progress bar, and various other formats as time permits
-
-#### test
